@@ -1,0 +1,39 @@
+TEST
+cmake_minimum_required(VERSION 3.14)
+project(BioinformaticsApp)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_executable(mainprog
+    src/main.cpp
+    src/Bioinformatics.cpp
+)
+
+---------------------------
+NORMAL
+cmake_minimum_required(VERSION 3.10)
+project(BioinformaticsProject)
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+enable_testing()
+
+# Biblioteca con tu código
+add_library(bioinformatics src/Bioinformatics.cpp)
+target_include_directories(bioinformatics PUBLIC src)
+
+# Ejecutable principal
+add_executable(mainprog src/main.cpp)
+target_link_libraries(mainprog PRIVATE bioinformatics)
+
+# Agregar googletest local
+add_subdirectory(googletest)
+
+# Ejecutable de tests
+add_executable(testprog tests/test_bioinformatics.cpp)
+target_link_libraries(testprog PRIVATE bioinformatics gtest_main)
+
+# Registrar el test para ctest
+add_test(NAME testprog COMMAND testprog)
