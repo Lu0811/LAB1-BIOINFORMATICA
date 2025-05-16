@@ -1,8 +1,3 @@
-¡Perfecto! Aquí te dejo el contenido en formato **Markdown** (`README.md`) para que puedas copiar y pegar directamente en tu archivo de GitHub.
-
----
-
-````markdown
 # LAB1-Bioinformática
 
 Este es un proyecto de bioinformática diseñado para analizar secuencias biológicas en formato FASTA. El programa permite detectar el tipo de secuencia (ADN, ARN o proteína), realizar la transcripción de ADN a ARN y traducir secuencias de proteínas en sus aminoácidos correspondientes.
